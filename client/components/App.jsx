@@ -1,26 +1,30 @@
-import React, {useState, useEffect} from 'react'
-import {getGreeting} from '../apiClient'
+import React, { useState, useEffect } from 'react'
 
 const App = () => {
-
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(40)
 
   useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
-      })
+
   }, [count])
 
   return (
     <>
-    {count}
-    <h1>{greeting}</h1>
-    <button onClick={() => setCount(count + 1)}>Click</button>
+      <h1>Interval Timer</h1>
+      <p>{count}</p>
+      <button onClick={() => setCount(count - 1)}>Click</button>
     </>
   )
 }
 
 export default App
+
+// const [greeting, setGreeting] = useState('hello ')
+// const [count, setCount] = useState(10)
+
+// useEffect(() => {
+//   getGreeting()
+//     .then((greeting) => {
+//       console.log('this is', greeting)
+//       setGreeting(greeting)
+//     })
+// }, [count])
