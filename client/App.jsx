@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import CountdownTimer from './components/CountdownTimer'
 
 const App = () => {
-  const [seconds, setSeconds] = useState(40)
-
-  useEffect(() => {
-    if (seconds > 0) {
-      setTimeout(() => setSeconds(seconds - 1), 1000)
-    } else {
-      setSeconds('BOOOOM!')
-    }
-  }, [])
+  console.log('test')
 
   return (
     <>
-      <h1>Interval Timer</h1>
-
-      <p>Countdown from: {seconds} seconds  </p>
-      {/* <button onClick={() => { timer }}>Start</button> */}
+      <h1>
+  Countdown Timer
+      </h1>
+      <CountdownTimer />
     </>
   )
 }
