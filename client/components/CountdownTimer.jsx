@@ -19,7 +19,7 @@ const CountdownTimer = () => {
 
   return (
     <>
-      <p>Time left: {timeLeft}</p>
+      <p>Time left: {timeLeft / 1000}</p>
 
       <button onClick={restart}>
         Restart counter with 40 seconds
