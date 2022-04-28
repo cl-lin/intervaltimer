@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useCountDown from 'react-countdown-hook'
 
-const initialTime = 40 * 1000 // initial time in milliseconds, defaults to 60000
-const interval = 1000 // interval to change remaining time amount, defaults to 1000
+// const initialTime = 40 * 1000
 
 const CountdownTimer = () => {
+  const [seconds, setSeconds] = useState(0)
+
+  const initialTime = seconds // initial time in milliseconds, defaults to 60000
+  const interval = 1000 // interval to change remaining time amount, defaults to 1000
+
   const [timeLeft, { start, pause, resume, reset }] = useCountDown(initialTime, interval)
 
   // start the timer during the first render
@@ -12,21 +16,25 @@ const CountdownTimer = () => {
     start()
   }, [])
 
-  const restart = React.useCallback(() => {
-    const newTime = 40 * 1000
-    start(newTime)
-  }, [])
+  // const restart = React.useCallback(() => {
+  //   const newTime = 40 * 1000
+  //   start(newTime)
+  // }, [])
 
   return (
     <>
+      <p>Input your time (in seconds):</p>
+      <input></input>
+      <button onChange={event => setSeconds(event.target.value)} >Submit</button>
+
       <p>Time left: {timeLeft / 1000}</p>
 
       <button onClick={() => start()}>
         Start
       </button>
-      <button onClick={restart}>
+      {/* <button onClick={restart}>
         Restart counter with 40 seconds
-      </button>
+      </button> */}
       <button onClick={() => pause()}>
         Pause
       </button>
