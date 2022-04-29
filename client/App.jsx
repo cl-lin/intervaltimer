@@ -2,8 +2,6 @@ import React from 'react'
 import CountdownTimer from './components/CountdownTimer'
 
 const App = () => {
-  console.log('test')
-
   return (
     <>
       <h1>

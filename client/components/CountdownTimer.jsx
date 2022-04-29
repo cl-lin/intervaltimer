@@ -12,20 +12,28 @@ const CountdownTimer = () => {
   const [timeLeft, { start, pause, resume, reset }] = useCountDown(initialTime, interval)
 
   // start the timer during the first render
-  React.useEffect(() => {
-    start()
-  }, [])
+  // React.useEffect(() => {
+  //   start()
+  // }, [])
 
   // const restart = React.useCallback(() => {
   //   const newTime = 40 * 1000
   //   start(newTime)
   // }, [])
 
+  const handleSubmit = () => {
+    const time = seconds * 1000
+    console.log('input', time)
+  }
+
   return (
     <>
       <p>Input your time (in seconds):</p>
-      <input></input>
-      <button onChange={event => setSeconds(event.target.value)} >Submit</button>
+      <input
+        value = {seconds}
+        onChange = {(e) => setSeconds(e.target.value)}
+      ></input>
+      <button onClick={handleSubmit}>Submit</button>
 
       <p>Time left: {timeLeft / 1000}</p>
 
