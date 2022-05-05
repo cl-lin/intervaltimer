@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useCountDown from 'react-countdown-hook'
 
-const CountdownTimer = () => {
+const IntervalTimer = () => {
   const [seconds, setSeconds] = useState(0)
 
   const handleChange = (event) => {
@@ -12,11 +12,12 @@ const CountdownTimer = () => {
     start(seconds)
     pause(seconds)
   }
-  const interval = 1000 // interval to change remaining time amount, defaults to 1000
+  const interval = 1000
 
   const [timeLeft, { start, pause, resume, reset }] = useCountDown(seconds, interval)
   return (
     <>
+      <h2>Intervals</h2>
       <p>Time left: {timeLeft / 1000}</p>
 
       <p>Work out time (in seconds):</p>
@@ -46,4 +47,4 @@ const CountdownTimer = () => {
   )
 }
 
-export default CountdownTimer
+export default IntervalTimer
